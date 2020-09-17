@@ -46,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Chat\Chat.cs" />
-    <Compile Include="Models\Messages\Message.cs" />
-    <Compile Include="Models\Users\User.cs" />
     <Compile Include="PatrioChat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{be9bb892-3019-44af-ba75-182edecf9f0b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatrioTcpClient\PatrioTcpClient.csproj">
+      <Project>{c92d5b0c-04b0-49b5-b8b1-b925274f2758}</Project>
+      <Name>PatrioTcpClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrioChat", "PatrioChat\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrioTcpClient", "PatrioTcpClient\PatrioTcpClient.csproj", "{C92D5B0C-04B0-49B5-B8B1-B925274F2758}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BE9BB892-3019-44AF-BA75-182EDECF9F0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C92D5B0C-04B0-49B5-B8B1-B925274F2758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C92D5B0C-04B0-49B5-B8B1-B925274F2758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C92D5B0C-04B0-49B5-B8B1-B925274F2758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9BB892-3019-44AF-BA75-182EDECF9F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9BB892-3019-44AF-BA75-182EDECF9F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9BB892-3019-44AF-BA75-182EDECF9F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9BB892-3019-44AF-BA75-182EDECF9F0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

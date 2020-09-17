@@ -18,12 +18,19 @@ namespace PatrioTcpClient
 
         public PatriotClient(string hostname, int port)
         {
-            _connection = new Connection(new BinaryFormatter(), hostname, port);
+            _connection = new Connection(hostname, port);
+            _connection.Send(new Packet(new User("guy"), PacketType.Login));
+            _connection.Read();
         }
 
         public bool Login(string username)
         {
             throw new NotImplementedException();
+        }
+
+        public void Logout(string username)
+        {
+            _connection.Close();
         }
 
         public bool Register(string username)

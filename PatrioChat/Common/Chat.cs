@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common
 {
+    [Serializable]
     public class Chat
     {
         public ICollection<Message> Messages { get; private set; }

@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace PatrioTcpClient.Connections
 {
+    [Serializable]
     internal class Packet
     {
-        public object Value;
-        public PacketType PacketType;
+        public object Value { get; private set; }
+        public PacketType Type { get; private set; }
+
+        public Packet(object value, PacketType type)
+        {
+            Value = value;
+            Type = type;
+        }
     }
 }

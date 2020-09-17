@@ -9,7 +9,7 @@ namespace PatrioTcpClient.Connections
     internal interface IConnection<T>
     {
         void Send(T packet);
-        T Read();
+        Task<T> Read();
         void Close();
     }
 }

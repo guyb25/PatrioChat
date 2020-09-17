@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatrioTcpClient;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace PatrioChat
         [STAThread]
         static void Main()
         {
+            IPatriotClient patriotClient = new PatriotClient("127.0.0.1", 3000);
+            Console.ReadLine();
+            patriotClient.Logout("guy");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PatrioChat());

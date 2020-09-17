@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,14 +12,11 @@ namespace PatrioTcpClient.Connections
 {
     internal class Connection : IConnection<Packet>
     {
-        private IFormatter _formatter;
         private Stream _stream;
         private TcpClient _client;
 
-        public Connection(IFormatter formatter, string hostname, int port)
+        public Connection(string hostname, int port)
         {
-            _formatter = formatter;
-
             _client = new TcpClient();
             _client.Connect(hostname, port);
             _stream = _client.GetStream();
@@ -26,12 +24,22 @@ namespace PatrioTcpClient.Connections
 
         public void Send(Packet packet)
         {
-            _formatter.Serialize(_stream, packet);
+            string jsonPacket = JsonConvert.SerializeObject(packet);
+            byte[] message = Encoding.Default.GetBytes(jsonPacket);
+            _stream.Write(message, 0, jsonPacket.Length);
         }
 
-        public Packet Read()
+        public async Task<Packet> Read()
         {
-            return (Packet)_formatter.Deserialize(_stream);
+            var reader = new StreamReader(_stream);
+            string message = string.Empty;
+
+            while (reader.Peek() != -1)
+            {
+                message += Convert.ToChar(reader.Read());
+            }
+            
+            return (Packet) JsonConvert.DeserializeObject(message);
         }
 
         public void Close()
