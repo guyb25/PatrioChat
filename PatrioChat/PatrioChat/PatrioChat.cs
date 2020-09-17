@@ -29,7 +29,8 @@ namespace PatrioChat
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            
+            string text = input.Text;
+            messagesBox.Items.Add(text);
         }
     }
 }

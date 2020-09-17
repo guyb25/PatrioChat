@@ -31,25 +31,26 @@ namespace PatrioChat
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatrioChat));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.input = new System.Windows.Forms.TextBox();
             this.SendButton = new System.Windows.Forms.Button();
             this.Chats = new System.Windows.Forms.ListBox();
             this.messagesBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // input
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe Print", 10F);
-            this.textBox1.Location = new System.Drawing.Point(138, 395);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(569, 52);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.chatsBox_TextChanged);
+            this.input.BackColor = System.Drawing.SystemColors.Window;
+            this.input.Font = new System.Drawing.Font("Segoe Print", 10F);
+            this.input.Location = new System.Drawing.Point(138, 395);
+            this.input.Multiline = true;
+            this.input.Name = "input";
+            this.input.Size = new System.Drawing.Size(569, 52);
+            this.input.TabIndex = 0;
+            this.input.TextChanged += new System.EventHandler(this.chatsBox_TextChanged);
             // 
             // SendButton
             // 
-            this.SendButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SendButton.BackColor = System.Drawing.SystemColors.Window;
             this.SendButton.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SendButton.Location = new System.Drawing.Point(713, 395);
             this.SendButton.Name = "SendButton";
@@ -61,6 +62,7 @@ namespace PatrioChat
             // 
             // Chats
             // 
+            this.Chats.BackColor = System.Drawing.SystemColors.Window;
             this.Chats.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chats.FormattingEnabled = true;
             this.Chats.ItemHeight = 28;
@@ -72,6 +74,7 @@ namespace PatrioChat
             // 
             // messagesBox
             // 
+            this.messagesBox.BackColor = System.Drawing.SystemColors.Window;
             this.messagesBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messagesBox.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messagesBox.FormattingEnabled = true;
@@ -90,7 +93,7 @@ namespace PatrioChat
             this.Controls.Add(this.messagesBox);
             this.Controls.Add(this.Chats);
             this.Controls.Add(this.SendButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.input);
             this.Name = "PatrioChat";
             this.Text = "PatrioChat";
             this.ResumeLayout(false);
@@ -100,7 +103,7 @@ namespace PatrioChat
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox input;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.ListBox Chats;
         private System.Windows.Forms.ListBox messagesBox;
