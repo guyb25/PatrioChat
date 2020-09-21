@@ -93,8 +93,10 @@ namespace PatrioChat
             this.Controls.Add(this.Chats);
             this.Controls.Add(this.SendButton);
             this.Controls.Add(this.input);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PatrioChat";
             this.Text = "PatrioChat";
+            this.Load += new System.EventHandler(this.PatrioChat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

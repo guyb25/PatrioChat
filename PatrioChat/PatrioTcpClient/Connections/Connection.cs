@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,7 @@ namespace PatrioTcpClient.Connections
 {
     internal class Connection : IConnection<Packet>
     {
+        public event Action<Packet> OnMessage;
         private Stream _stream;
         private TcpClient _client;
 
@@ -40,6 +42,23 @@ namespace PatrioTcpClient.Connections
             }
             
             return JsonConvert.DeserializeObject<Packet>(message);
+        }
+
+        public void Listen()
+        {
+            while (_client.Connected)
+            {
+                try
+                {
+                    var packet = Read();
+                    OnMessage?.Invoke(packet);
+                }
+
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
         }
 
         public void Close()

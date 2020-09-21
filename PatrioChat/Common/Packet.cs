@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatrioTcpClient.Connections
+namespace Common
 {
     [Serializable]
-    internal class Packet
+    public class Packet
     {
         public object Value { get; private set; }
         public PacketType Type { get; private set; }

@@ -23,30 +23,49 @@ namespace PatrioTcpClient
 
         public bool Login(string username)
         {
-            var packet = new Packet(username, PacketType.Login);
+            var user = new User(username);
+            var packet = new Packet(user, PacketType.Login);
             _connection.Send(packet);
 
             var resultPacket = _connection.Read();
             return resultPacket.Type == PacketType.ServerResponse && (bool) resultPacket.Value == true;
         }
 
-        public void Logout(string username)
+        public bool Logout(string username)
         {
-            _connection.Close();
+            var user = new User(username);
+            var packet = new Packet(user, PacketType.Logout);
+            _connection.Send(packet);
+
+            var resultPacket = _connection.Read();
+            return resultPacket.Type == PacketType.ServerResponse && (bool)resultPacket.Value == true;
         }
 
         public bool Register(string username)
         {
-            var packet = new Packet(username, PacketType.Register);
+            var user = new User(username);
+            var packet = new Packet(user, PacketType.Register);
             _connection.Send(packet);
 
             var resultPacket = _connection.Read();
             return resultPacket.Type == PacketType.ServerResponse && (bool) resultPacket.Value == true;
         }
 
+        public void Listen(Action<Packet> onMessage)
+        {
+            _connection.OnMessage += onMessage;
+            _connection.Listen();
+        }
+
         public void SendMessage(Message message)
         {
-            throw new NotImplementedException();
+            var packet = new Packet(message, PacketType.SendMessage);
+            _connection.Send(packet);
+        }
+
+        public void Close()
+        {
+            _connection.Close();
         }
     }
 }

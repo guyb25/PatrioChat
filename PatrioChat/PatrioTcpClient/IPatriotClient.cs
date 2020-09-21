@@ -1,9 +1,6 @@
 ﻿using Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PatrioTcpClient
 {
@@ -12,6 +9,8 @@ namespace PatrioTcpClient
         bool Register(string username);
         bool Login(string username);
         void SendMessage(Message message);
-        void Logout(string username);
+        bool Logout(string username);
+        void Listen(Action<Packet> onMessage);
+        void Close();
     }
 }

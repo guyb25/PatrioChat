@@ -17,13 +17,12 @@ namespace PatrioChat
         [STAThread]
         static void Main()
         {
-            IPatriotClient patriotClient = new PatriotClient("127.0.0.1", 3000);
-            var a = patriotClient.Register("guy");
-            var b = patriotClient.Login("guy");
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatrioChat());
+
+            IPatriotClient patriotClient = new PatriotClient("127.0.0.1", 3000);
+            var applicationRunner = new ApplicationRunner(patriotClient);
+            applicationRunner.Run();
         }
     }
 }

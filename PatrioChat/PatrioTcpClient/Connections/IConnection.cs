@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Common;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PatrioTcpClient.Connections
 {
     internal interface IConnection<T>
     {
+        event Action<Packet> OnMessage;
         void Send(T packet);
         T Read();
         void Close();
+        void Listen();
     }
 }

@@ -48,8 +48,6 @@
     <Compile Include="PatriotClient.cs" />
     <Compile Include="Connections\Connection.cs" />
     <Compile Include="Connections\IConnection.cs" />
-    <Compile Include="Connections\Packet.cs" />
-    <Compile Include="Connections\PacketType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
