@@ -74,8 +74,6 @@ namespace PatrioChat
             // 
             // messagesBox
             // 
-            this.messagesBox.BackColor = System.Drawing.SystemColors.Window;
-            this.messagesBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messagesBox.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messagesBox.FormattingEnabled = true;
             this.messagesBox.ItemHeight = 23;
@@ -83,6 +81,7 @@ namespace PatrioChat
             this.messagesBox.Name = "messagesBox";
             this.messagesBox.Size = new System.Drawing.Size(650, 349);
             this.messagesBox.TabIndex = 3;
+            this.messagesBox.SelectedIndexChanged += new System.EventHandler(this.messagesBox_SelectedIndexChanged);
             // 
             // PatrioChat
             // 

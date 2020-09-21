@@ -32,5 +32,10 @@ namespace PatrioChat
             string text = input.Text;
             messagesBox.Items.Add(text);
         }
+
+        private void messagesBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

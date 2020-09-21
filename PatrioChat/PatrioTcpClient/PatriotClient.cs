@@ -19,13 +19,15 @@ namespace PatrioTcpClient
         public PatriotClient(string hostname, int port)
         {
             _connection = new Connection(hostname, port);
-            _connection.Send(new Packet(new User("guy"), PacketType.Login));
-            _connection.Read();
         }
 
         public bool Login(string username)
         {
-            throw new NotImplementedException();
+            var packet = new Packet(username, PacketType.Login);
+            _connection.Send(packet);
+
+            var resultPacket = _connection.Read();
+            return resultPacket.Type == PacketType.ServerResponse && (bool) resultPacket.Value == true;
         }
 
         public void Logout(string username)
@@ -35,7 +37,11 @@ namespace PatrioTcpClient
 
         public bool Register(string username)
         {
-            throw new NotImplementedException();
+            var packet = new Packet(username, PacketType.Register);
+            _connection.Send(packet);
+
+            var resultPacket = _connection.Read();
+            return resultPacket.Type == PacketType.ServerResponse && (bool) resultPacket.Value == true;
         }
 
         public void SendMessage(Message message)

@@ -18,8 +18,8 @@ namespace PatrioChat
         static void Main()
         {
             IPatriotClient patriotClient = new PatriotClient("127.0.0.1", 3000);
-            Console.ReadLine();
-            patriotClient.Logout("guy");
+            var a = patriotClient.Register("guy");
+            var b = patriotClient.Login("guy");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

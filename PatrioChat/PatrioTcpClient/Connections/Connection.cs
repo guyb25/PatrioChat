@@ -29,7 +29,7 @@ namespace PatrioTcpClient.Connections
             _stream.Write(message, 0, jsonPacket.Length);
         }
 
-        public async Task<Packet> Read()
+        public Packet Read()
         {
             var reader = new StreamReader(_stream);
             string message = string.Empty;
@@ -39,7 +39,7 @@ namespace PatrioTcpClient.Connections
                 message += Convert.ToChar(reader.Read());
             }
             
-            return (Packet) JsonConvert.DeserializeObject(message);
+            return JsonConvert.DeserializeObject<Packet>(message);
         }
 
         public void Close()
