@@ -11,11 +11,11 @@ namespace Common
     {
         public ICollection<Message> Messages { get; private set; }
         public string ChatName { get; private set; }
-        public Guid ChatId { get; private set; }
+        public string ChatId { get; private set; }
 
-        public Chat(ICollection<Message> message, string chatName, Guid chatId)
+        public Chat(ICollection<Message> messages, string chatName, string chatId)
         {
-            Messages = message;
+            Messages = messages;
             ChatName = chatName;
             ChatId = chatId;
         }

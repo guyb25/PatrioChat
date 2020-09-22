@@ -35,7 +35,10 @@ namespace PatrioChat
             if (loggedIn)
             {
                 Application.Run(new PatrioChat(_client, clientUsername));
+                _client.Logout(clientUsername);
             }
+
+            _client.Close();
         }
     }
 }

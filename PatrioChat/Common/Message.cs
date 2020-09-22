@@ -10,15 +10,17 @@ namespace Common
     public class Message
     {
         public object Content { get; private set; }
-        public Type ContentType { get; private set; }
-        public User Sender { get; private set; }
+        public MessageType ContentType { get; private set; }
+        public string Sender { get; private set; }
+        public string TargetRoomId { get; private set; }
         public DateTime TimeSent { get; private set; }
 
-        public Message(object content, Type contentType, User sender, DateTime timeSent)
+        public Message(object content, MessageType contentType, string sender, string targetRoomId, DateTime timeSent)
         {
             Content = content;
             ContentType = contentType;
             Sender = sender;
+            TargetRoomId = targetRoomId;
             TimeSent = timeSent;
         }
     }

@@ -31,14 +31,11 @@ namespace PatrioTcpClient
             return resultPacket.Type == PacketType.ServerResponse && (bool) resultPacket.Value == true;
         }
 
-        public bool Logout(string username)
+        public void Logout(string username)
         {
             var user = new User(username);
             var packet = new Packet(user, PacketType.Logout);
             _connection.Send(packet);
-
-            var resultPacket = _connection.Read();
-            return resultPacket.Type == PacketType.ServerResponse && (bool)resultPacket.Value == true;
         }
 
         public bool Register(string username)
@@ -59,7 +56,14 @@ namespace PatrioTcpClient
 
         public void SendMessage(Message message)
         {
-            var packet = new Packet(message, PacketType.SendMessage);
+            var packet = new Packet(message, PacketType.NewMessage);
+            _connection.Send(packet);
+        }
+
+        public void RequestChats(string username)
+        {
+            var user = new User(username);
+            var packet = new Packet(user, PacketType.RequestChats);
             _connection.Send(packet);
         }
 

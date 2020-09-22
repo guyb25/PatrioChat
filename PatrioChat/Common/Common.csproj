@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Chat.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="PacketType.cs" />
     <Compile Include="User.cs" />

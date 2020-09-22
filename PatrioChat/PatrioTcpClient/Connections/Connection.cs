@@ -15,13 +15,17 @@ namespace PatrioTcpClient.Connections
     {
         public event Action<Packet> OnMessage;
         private Stream _stream;
+        private StreamReader _reader;
         private TcpClient _client;
+
+        private int MESSAGE_LENGTH_SIZE = 5;
 
         public Connection(string hostname, int port)
         {
             _client = new TcpClient();
             _client.Connect(hostname, port);
             _stream = _client.GetStream();
+            _reader = new StreamReader(_stream);
         }
 
         public void Send(Packet packet)
@@ -33,15 +37,14 @@ namespace PatrioTcpClient.Connections
 
         public Packet Read()
         {
-            var reader = new StreamReader(_stream);
-            string message = string.Empty;
+            char[] lengthString = new char[MESSAGE_LENGTH_SIZE];
+            _reader.ReadBlock(lengthString, 0, MESSAGE_LENGTH_SIZE);
 
-            while (reader.Peek() != -1)
-            {
-                message += Convert.ToChar(reader.Read());
-            }
+            int length = Convert.ToInt32(new string(lengthString));
+            char[] message = new char[length];
+            _reader.ReadBlock(message, 0, length);
             
-            return JsonConvert.DeserializeObject<Packet>(message);
+            return JsonConvert.DeserializeObject<Packet>(new string(message));
         }
 
         public void Listen()
