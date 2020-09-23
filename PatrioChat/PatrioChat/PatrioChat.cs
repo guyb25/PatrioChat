@@ -92,6 +92,7 @@ namespace PatrioChat
                 string text = input.Text;
                 var message = new Common.Message(text, MessageType.Text, _username, _scopedChat.ChatId, DateTime.Now);
                 _client.SendMessage(message);
+                input.Text = string.Empty;
             }
         }
 
