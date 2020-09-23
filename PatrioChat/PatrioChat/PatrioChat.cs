@@ -29,6 +29,8 @@ namespace PatrioChat
             _username = username;
             _chatsManager = new ChatsManager();
 
+            messagesBox.Visible = false;
+
             Task.Run(() => _client.Listen((packet) => onMessage(packet)));
             _client.RequestChats(_username);
         }
@@ -61,7 +63,7 @@ namespace PatrioChat
         {
             if (_scopedChat != null)
             {
-                messagesBox.Items.Add(message.Sender + ": " + message.Content.ToString());
+                messagesBox.Items.Add(message.TimeSent.ToShortTimeString() + " | " + message.Sender + ": " + message.Content.ToString());
             }
         }
 
@@ -75,6 +77,7 @@ namespace PatrioChat
 
             if (chatIndex != -1)
             {
+                messagesBox.Visible = true;
                 _scopedChat = _chatsManager.FindChatByIndex(chatIndex);
 
                 messagesBox.Items.Clear();
