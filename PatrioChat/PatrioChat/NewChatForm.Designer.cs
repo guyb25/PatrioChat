@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewChatForm));
+            this.chatNameInput = new System.Windows.Forms.TextBox();
             this.chatNameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.participantsLabel = new System.Windows.Forms.Label();
             this.participantsBox = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // chatNameInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(162, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(288, 20);
-            this.textBox1.TabIndex = 0;
+            this.chatNameInput.Location = new System.Drawing.Point(162, 12);
+            this.chatNameInput.Name = "chatNameInput";
+            this.chatNameInput.Size = new System.Drawing.Size(288, 20);
+            this.chatNameInput.TabIndex = 0;
             // 
             // chatNameLabel
             // 
@@ -52,15 +53,15 @@
             this.chatNameLabel.TabIndex = 1;
             this.chatNameLabel.Text = "Enter Chat Name: ";
             // 
-            // label1
+            // participantsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Choose participants:";
+            this.participantsLabel.AutoSize = true;
+            this.participantsLabel.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.participantsLabel.Location = new System.Drawing.Point(12, 55);
+            this.participantsLabel.Name = "participantsLabel";
+            this.participantsLabel.Size = new System.Drawing.Size(144, 23);
+            this.participantsLabel.TabIndex = 2;
+            this.participantsLabel.Text = "Choose participants:";
             // 
             // participantsBox
             // 
@@ -71,6 +72,7 @@
             this.participantsBox.Name = "participantsBox";
             this.participantsBox.Size = new System.Drawing.Size(288, 257);
             this.participantsBox.TabIndex = 3;
+            this.participantsBox.SelectedIndexChanged += new System.EventHandler(this.participantsBox_SelectedIndexChanged);
             // 
             // submitButton
             // 
@@ -81,6 +83,7 @@
             this.submitButton.TabIndex = 4;
             this.submitButton.Text = "submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // NewChatForm
             // 
@@ -89,9 +92,11 @@
             this.ClientSize = new System.Drawing.Size(462, 325);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.participantsBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.participantsLabel);
             this.Controls.Add(this.chatNameLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.chatNameInput);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NewChatForm";
             this.Text = "NewChatForm";
             this.ResumeLayout(false);
@@ -101,9 +106,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox chatNameInput;
         private System.Windows.Forms.Label chatNameLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label participantsLabel;
         private System.Windows.Forms.ListBox participantsBox;
         private System.Windows.Forms.Button submitButton;
     }

@@ -2,11 +2,9 @@
 using Newtonsoft.Json.Linq;
 using PatrioTcpClient;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -53,7 +51,11 @@ namespace PatrioChat
                     {
                         var message = ((JObject)packet.Value).ToObject<Common.Message>();
                         _chatsManager.AddMessageToChat(message.TargetRoomId, message);
-                        DisplayMessage(message);
+
+                        if (_scopedChat.ChatId == message.TargetRoomId)
+                        {
+                            DisplayMessage(message);
+                        }
                     });
                     break;
             }
