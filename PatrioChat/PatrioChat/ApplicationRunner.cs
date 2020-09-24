@@ -1,4 +1,6 @@
-﻿using PatrioTcpClient;
+﻿using Common;
+using Newtonsoft.Json.Linq;
+using PatrioTcpClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +36,11 @@ namespace PatrioChat
 
             if (loggedIn)
             {
-                Application.Run(new PatrioChat(_client, clientUsername));
+                var patrioChatUI = new PatrioChat();
+                var patrioChatManager = new PatrioChatManager(patrioChatUI, _client, clientUsername);
+
+                Application.Run(patrioChatUI);
+
                 _client.Logout(clientUsername);
             }
 

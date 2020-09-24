@@ -69,6 +69,7 @@
     <Compile Include="PatrioChat.Designer.cs">
       <DependentUpon>PatrioChat.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatrioChatManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">

@@ -10,15 +10,22 @@ namespace PatrioChat
     public class ChatsManager
     {
         private List<Chat> _chats;
+        public List<User> Users { get; private set; }
 
         public ChatsManager()
         {
             _chats = new List<Chat>();
+            Users = new List<User>();
         }
 
         public void AddChat(Chat chat)
         {
             _chats.Add(chat);
+        }
+
+        public void AddUser(User user)
+        {
+            Users.Add(user);
         }
 
         public void AddMessageToChat(string chatId, Message message)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace PatrioChat
     {
         public event Action<string, IEnumerable<string>> OnSubmit;
 
-        public NewChatForm(IEnumerable<string> existingUsers)
+        public NewChatForm(IEnumerable<User> existingUsers)
         {
             InitializeComponent();
             InitParticipantsBox(existingUsers);
@@ -27,11 +28,11 @@ namespace PatrioChat
             OnSubmit?.Invoke(chatName, selectedParticipants);
         }
 
-        private void InitParticipantsBox(IEnumerable<string> existingUsers)
+        private void InitParticipantsBox(IEnumerable<User> existingUsers)
         {
-            foreach (string username in existingUsers)
+            foreach (User user in existingUsers)
             {
-                participantsBox.Items.Add(username);
+                participantsBox.Items.Add(user.Username);
             }
         }
 
