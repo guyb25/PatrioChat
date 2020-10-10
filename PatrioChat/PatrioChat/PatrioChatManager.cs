@@ -30,6 +30,7 @@ namespace PatrioChat
             InitPacketHandlers();
             Task.Run(() => _client.Listen((packet) => OnPacket(packet)));
             _client.RequestChats(_username);
+            _client.RequestUsers();
 
             _patrioChat.OnChangeChat += (chatIndex) => ChangeChat(chatIndex);
             _patrioChat.OnSendMessage += (message) => SendMessage(message);
@@ -97,7 +98,14 @@ namespace PatrioChat
 
         private void CreateNewChat()
         {
-            Form newChatForm = new NewChatForm(_chatsManager.Users);
+            var newChatForm = new NewChatForm(_chatsManager.Users);
+
+            newChatForm.OnSubmit += (chatName, participants) =>
+            {
+                _client.CreateNewChat(chatName, participants);
+                newChatForm.Close();
+            };
+
             newChatForm.Show();
         }
     }

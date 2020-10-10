@@ -1,20 +1,12 @@
 ﻿using Common;
-using PatrioTcpClient.Connections;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatrioTcpClient
 {
     public class PatriotClient : IPatriotClient
     {
-        private IConnection<Packet> _connection;
+        private Connection _connection;
 
         public PatriotClient(string hostname, int port)
         {
@@ -64,6 +56,19 @@ namespace PatrioTcpClient
         {
             var user = new User(username);
             var packet = new Packet(user, PacketType.RequestChats);
+            _connection.Send(packet);
+        }
+
+        public void CreateNewChat(string chatName, IEnumerable<User> participants)
+        {
+            var chatCreationRequest = new ChatCreationRequest(chatName, participants);
+            var packet = new Packet(chatCreationRequest, PacketType.NewChat);
+            _connection.Send(packet);
+        }
+
+        public void RequestUsers()
+        {
+            var packet = new Packet(null, PacketType.RequestUsers);
             _connection.Send(packet);
         }
 

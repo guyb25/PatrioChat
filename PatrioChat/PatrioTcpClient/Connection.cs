@@ -9,9 +9,9 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatrioTcpClient.Connections
+namespace PatrioTcpClient
 {
-    internal class Connection : IConnection<Packet>
+    internal class Connection
     {
         public event Action<Packet> OnMessage;
         private Stream _stream;

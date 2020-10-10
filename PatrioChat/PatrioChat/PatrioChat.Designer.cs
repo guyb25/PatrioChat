@@ -42,7 +42,7 @@ namespace PatrioChat
             // 
             this.input.BackColor = System.Drawing.SystemColors.Window;
             this.input.Font = new System.Drawing.Font("Segoe Print", 10F);
-            this.input.Location = new System.Drawing.Point(284, 421);
+            this.input.Location = new System.Drawing.Point(284, 430);
             this.input.Multiline = true;
             this.input.Name = "input";
             this.input.Size = new System.Drawing.Size(537, 43);
@@ -53,7 +53,7 @@ namespace PatrioChat
             // 
             this.SendButton.BackColor = System.Drawing.SystemColors.Window;
             this.SendButton.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendButton.Location = new System.Drawing.Point(827, 421);
+            this.SendButton.Location = new System.Drawing.Point(827, 430);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(75, 43);
             this.SendButton.TabIndex = 1;
@@ -67,9 +67,9 @@ namespace PatrioChat
             this.chatsBox.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatsBox.FormattingEnabled = true;
             this.chatsBox.ItemHeight = 28;
-            this.chatsBox.Location = new System.Drawing.Point(12, 11);
+            this.chatsBox.Location = new System.Drawing.Point(12, 49);
             this.chatsBox.Name = "chatsBox";
-            this.chatsBox.Size = new System.Drawing.Size(266, 396);
+            this.chatsBox.Size = new System.Drawing.Size(266, 424);
             this.chatsBox.TabIndex = 2;
             this.chatsBox.SelectedIndexChanged += new System.EventHandler(this.chatsBox_SelectedIndexChanged);
             // 
@@ -78,9 +78,9 @@ namespace PatrioChat
             this.messagesBox.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messagesBox.FormattingEnabled = true;
             this.messagesBox.ItemHeight = 23;
-            this.messagesBox.Location = new System.Drawing.Point(284, 12);
+            this.messagesBox.Location = new System.Drawing.Point(284, 49);
             this.messagesBox.Name = "messagesBox";
-            this.messagesBox.Size = new System.Drawing.Size(618, 395);
+            this.messagesBox.Size = new System.Drawing.Size(618, 372);
             this.messagesBox.TabIndex = 3;
             this.messagesBox.SelectedIndexChanged += new System.EventHandler(this.messagesBox_SelectedIndexChanged);
             // 
@@ -88,9 +88,9 @@ namespace PatrioChat
             // 
             this.NewChatButton.BackColor = System.Drawing.Color.White;
             this.NewChatButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewChatButton.Location = new System.Drawing.Point(12, 421);
+            this.NewChatButton.Location = new System.Drawing.Point(12, 10);
             this.NewChatButton.Name = "NewChatButton";
-            this.NewChatButton.Size = new System.Drawing.Size(96, 43);
+            this.NewChatButton.Size = new System.Drawing.Size(266, 33);
             this.NewChatButton.TabIndex = 4;
             this.NewChatButton.Text = "NewChat";
             this.NewChatButton.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@ namespace PatrioChat
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(914, 476);
+            this.ClientSize = new System.Drawing.Size(914, 485);
             this.Controls.Add(this.NewChatButton);
             this.Controls.Add(this.messagesBox);
             this.Controls.Add(this.chatsBox);

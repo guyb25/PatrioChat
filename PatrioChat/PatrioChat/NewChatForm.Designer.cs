@@ -70,6 +70,7 @@
             this.participantsBox.ItemHeight = 23;
             this.participantsBox.Location = new System.Drawing.Point(162, 62);
             this.participantsBox.Name = "participantsBox";
+            this.participantsBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.participantsBox.Size = new System.Drawing.Size(288, 257);
             this.participantsBox.TabIndex = 3;
             this.participantsBox.SelectedIndexChanged += new System.EventHandler(this.participantsBox_SelectedIndexChanged);

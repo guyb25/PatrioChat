@@ -46,8 +46,7 @@
   <ItemGroup>
     <Compile Include="IPatriotClient.cs" />
     <Compile Include="PatriotClient.cs" />
-    <Compile Include="Connections\Connection.cs" />
-    <Compile Include="Connections\IConnection.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
